@@ -4,53 +4,53 @@ namespace Task02RefactorPrintStatistics
 {
     class PrintStatistics
     {
-        public void PrintStatistics(double[] array)
+        public void PrintStatistics(double[] array, int limit)
         {
-            PrintMaxElement(array);
-            PrintMinElement(array);
-            PrintAverage(array);
+            PrintMaxElement(array, limit);
+            PrintMinElement(array, limit);
+            PrintAverage(array, limit);
         }
 
-        public void PrintMinElement(double[] array)
+        public void PrintMinElement(double[] array, int limit)
         {
             double minElement = array[0];
 
-            for (int indexOfTheElement = 1; indexOfTheElement < array.Length; indexOfTheElement++)
+            for (int i = 1; i < limit; i++)
             {
-                if (array[indexOfTheElement] < minElement)
+                if (array[i] < minElement)
                 {
-                    minElement = array[indexOfTheElement];
+                    minElement = array[i];
                 }
             }
 
             Console.WriteLine(minElement);
         }
 
-        public void PrintMaxElement(double[] array)
+        public void PrintMaxElement(double[] array, int limit)
         {
             double maxElement = array[0];
 
-            for (int indexOfTheElement = 1; indexOfTheElement < array.Length; indexOfTheElement++)
+            for (int i = 1; i < limit; i++)
             {
-                if (array[indexOfTheElement] > maxElement)
+                if (array[i] > maxElement)
                 {
-                    maxElement = array[indexOfTheElement];
+                    maxElement = array[i];
                 }
             }
 
             Console.WriteLine(maxElement);
         }
 
-        public void PrintAverage(double[] array)
+        public void PrintAverage(double[] array, int limit)
         {
             double sumOfTheElements = 0;
 
-            for (int indexOfTheElement = 0; indexOfTheElement < array.Length; indexOfTheElement++)
+            for (int i = 0; i < limit; i++)
             {
-                sumOfTheElements += array[indexOfTheElement];
+                sumOfTheElements += array[i];
             }
 
-            double average = sumOfTheElements / array.Length;
+            double average = sumOfTheElements / limit;
             Console.WriteLine(average);
         }
     }
